@@ -1,7 +1,7 @@
 import { CircularProgress } from '@mui/material';
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { AlignItemsList, Input, Item } from '../components';
+import { AlignItemsList, Input, Item, NestedModal } from '../components';
 
 
 function Home() {
@@ -15,6 +15,7 @@ function Home() {
           <Item login={login} avatar={avatar_url} key={login} />
         )) : 'no Result'}
       </AlignItemsList>
+      <NestedModal/>
     </>
   );
 }
