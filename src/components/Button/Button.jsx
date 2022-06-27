@@ -11,7 +11,7 @@ function Button({ name , login }) {
         dispatch(handleOpenChildModal());
     }
   return (
-      <Btn onClick={handlClick } >{name}</Btn>
+      <Btn onClick={handlClick } style={{ display : 'block'}} >{name}</Btn>
   );
 }
 

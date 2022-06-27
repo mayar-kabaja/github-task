@@ -14,7 +14,7 @@ function Input() {
       type="search"
       onChange={(e) => setLogin(e.target.value)}
       placeholder="search"
-      style={{ width: '300px' }}
+      style={{ width: '300px' , marginTop : '20px' , padding :'0px 20px'}}
     />
   );
 }
