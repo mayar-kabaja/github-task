@@ -1,13 +1,11 @@
 import './App.css';
-import { AlignItemsList, Item } from './components';
+import { Home } from './Pages';
 
 
 function App() {
   return (
     <div className="App">
-      <AlignItemsList>
-        <Item login="mauar"/>
-      </AlignItemsList>
+      <Home />
     </div>
   );
 }
