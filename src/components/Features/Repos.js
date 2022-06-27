@@ -14,7 +14,7 @@ export const getRepos = createAsyncThunk('repos/getRepos', async (login, thunkAP
 
 const reposSlice = createSlice({
     name : 'repos',
-    initialState : { repos : [] , isLoadind : false , open : false },
+    initialState : { repos : [] , isLoading : false , open : false },
     reducers : {
         handleOpen : (state) => {
             return {

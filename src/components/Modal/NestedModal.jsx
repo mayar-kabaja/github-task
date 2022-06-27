@@ -5,6 +5,7 @@ import ChildModal from './ChildModal';
 import { useDispatch, useSelector } from 'react-redux';
 import { handleClose } from '../Features/Repos';
 import { Button } from '..';
+import { CircularProgress } from '@mui/material';
 
 const style = {
   position: 'absolute',
@@ -20,7 +21,7 @@ const style = {
   pb: 3,
 };
 export default function NestedModal() {
-  const { open , repos } = useSelector((store) => (store.repose));
+  const { open , repos , isLoading } = useSelector((store) => (store.repose));
   const dispatch = useDispatch();
   return (
     <div>
@@ -32,10 +33,11 @@ export default function NestedModal() {
       >
         <Box sx={{ ...style, width: 700 , maxHeight : '700px'}}>
           <h2>All Repos</h2>
-          {
-            open && repos.length
+          {!isLoading?
+            ( repos.length
             ? repos.map(({name , owner : { login }}) => <Button key={name} name={name} login={login}/>)
-            : null
+            : <h3>no Repos</h3>)
+            : <CircularProgress /> 
           }
           <ChildModal />
         </Box>
