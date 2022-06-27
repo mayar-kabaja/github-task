@@ -6,6 +6,7 @@ import { AlignItemsList, Input, Item, NestedModal } from '../components';
 
 function Home() {
   const { users, isLoading } = useSelector((store) => store.Users);
+
   return (
     <>
       <Input />

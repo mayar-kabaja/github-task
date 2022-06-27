@@ -1,9 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { reposSlice, Users } from "./components";
+import { pullsSlice, reposSlice, Users } from "./components";
 
 export const store = configureStore({
     reducer :{
         Users,
-        repose : reposSlice.reducer
+        repose : reposSlice.reducer,
+        pulls : pullsSlice.reducer,
     }
 })
