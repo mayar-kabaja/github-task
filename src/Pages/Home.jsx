@@ -1,13 +1,15 @@
 import { CircularProgress, Grid } from '@mui/material';
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { AlignItemsList, Input, Item, NestedModal } from '../components';
+import { AlignItemsList, Input, Item, NestedModal  } from '../components';
+
 
 function Home() {
   const { users, isLoading } = useSelector((store) => store.Users);
 
   return (
     <Grid container spacing={5}>
+     
       <Grid item xs={24}>
         <Input />
       </Grid>

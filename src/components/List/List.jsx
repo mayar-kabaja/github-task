@@ -7,8 +7,8 @@ export default function AlignItemsList({ children }) {
        left : '50%' ,
         transform :'translateX(-50%)' , 
         background : '#eee',
-        top : '50px' , 
-        width : '90%'} }>
+        top : '30px' , 
+        width : '80%'} }>
     {children}
     </List>
     
