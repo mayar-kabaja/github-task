@@ -9,6 +9,7 @@ function Item({login , avatar}) {
     dispatch(getRepos(login));
     dispatch(handleOpen());
   }
+  
   return (
     <ListItem alignItems="flex-start" style={{ cursor: 'pointer'}} onClick={handleClick}>
         <ListItemAvatar>
