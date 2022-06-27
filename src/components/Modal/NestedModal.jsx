@@ -4,7 +4,7 @@ import Modal from '@mui/material/Modal';
 import ChildModal from './ChildModal';
 import { useDispatch, useSelector } from 'react-redux';
 import { handleClose } from '../Features/Repos';
-import { Button } from '@mui/material';
+import { Button } from '..';
 
 const style = {
   position: 'absolute',
@@ -20,13 +20,8 @@ const style = {
   pb: 3,
 };
 export default function NestedModal() {
-  const { open , repos } = useSelector((store) => (store.repose))
-  // eslint-disable-next-line no-unused-expressions
-  open&& repos.length ? console.log(repos[0].name) : null
+  const { open , repos } = useSelector((store) => (store.repose));
   const dispatch = useDispatch();
-  
-    
-
   return (
     <div>
       <Modal
@@ -35,11 +30,11 @@ export default function NestedModal() {
         aria-labelledby="parent-modal-title"
         aria-describedby="parent-modal-description"
       >
-        <Box sx={{ ...style, width: 400 }}>
+        <Box sx={{ ...style, width: 700 , maxHeight : '700px'}}>
           <h2>All Repos</h2>
           {
             open && repos.length
-            ? repos.map((repo) => <Button key={repo.name}>{repo.name}</Button>)
+            ? repos.map(({name , owner : { login }}) => <Button key={name} name={name} login={login}/>)
             : null
           }
           <ChildModal />

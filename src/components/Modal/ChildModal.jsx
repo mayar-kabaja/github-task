@@ -2,6 +2,8 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
+import { useDispatch, useSelector } from 'react-redux';
+import { handleCloseChildModal } from '../Features/PullRequests';
 
 const style = {
   position: 'absolute',
@@ -18,30 +20,29 @@ const style = {
 };
 
 export default function ChildModal() {
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => {
-    setOpen(true);
-  };
+  const dispatch = useDispatch();
+  const {openChildModal , pulls} = useSelector((store) => store.pulls)
+  console.log(pulls);
   const handleClose = () => {
-    setOpen(false);
+    dispatch(handleCloseChildModal());
   };
 
   return (
     <React.Fragment>
-      <Button onClick={handleOpen}>Open Child Modal</Button>
       <Modal
         hideBackdrop
-        open={open}
+        open={openChildModal}
         onClose={handleClose}
         aria-labelledby="child-modal-title"
         aria-describedby="child-modal-description"
       >
         <Box sx={{ ...style, width: 200 }}>
-          <h2 id="child-modal-title">Text in a child modal</h2>
-          <p id="child-modal-description">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-          </p>
-          <Button onClick={handleClose}>Close Child Modal</Button>
+          <h2 id="child-modal-title">Pulls</h2>
+          {
+            openChildModal&& pulls.length ? pulls.map(({title})=><p key={title}>{title}</p>
+            ): null
+          }
+          <Button onClick={handleClose}>Close</Button>
         </Box>
       </Modal>
     </React.Fragment>
