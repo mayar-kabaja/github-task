@@ -15,6 +15,7 @@ const style = {
   transform: 'translate(-50%, -50%)',
   bgcolor: 'background.paper',
   border: '2px solid #000',
+  maxHeight :'500px',
   boxShadow: 24,
   pt: 2,
   px: 4,
@@ -31,7 +32,7 @@ export default function NestedModal() {
         aria-labelledby="parent-modal-title"
         aria-describedby="parent-modal-description"
       >
-        <Box sx={{ ...style, maxwidth: 200 , maxHeight : '700px'}}>
+        <Box sx={{ ...style, maxwidth: 200 }}>
           <h2>All Repos</h2>
           {!isLoading?
             ( repos.length
