@@ -1,10 +1,13 @@
 import './App.css';
-import { Input } from './components';
+import { AlignItemsList, Item } from './components';
+
 
 function App() {
   return (
     <div className="App">
-      <Input />
+      <AlignItemsList>
+        <Item login="mauar"/>
+      </AlignItemsList>
     </div>
   );
 }
